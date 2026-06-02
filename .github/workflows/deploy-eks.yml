@@ -41,7 +41,7 @@ jobs:
         run: |
           cd frontend
           docker build -t $ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG} .
-          docker build -t $ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG} $ECR_REGISTRY/${ECR_REPO_FRONTEND}:eks-v1
+          docker tag $ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG} $ECR_REGISTRY/${ECR_REPO_FRONTEND}:eks-v1
           docker push $ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG}
           docker push $ECR_REGISTRY/${ECR_REPO_FRONTEND}:eks-v1
 
@@ -52,7 +52,7 @@ jobs:
         run: |
           cd backend
           docker build -t $ECR_REGISTRY/${ECR_REPO_BACKEND}:${IMAGE_TAG} .
-          docker build -t $ECR_REGISTRY/${ECR_REPO_BACKEND}:${IMAGE_TAG} $ECR_REGISTRY/${ECR_REPO_BACKEND}:eks-v1
+          docker tag $ECR_REGISTRY/${ECR_REPO_BACKEND}:${IMAGE_TAG} $ECR_REGISTRY/${ECR_REPO_BACKEND}:eks-v1
           docker push $ECR_REGISTRY/${ECR_REPO_BACKEND}:${IMAGE_TAG}
           docker push $ECR_REGISTRY/${ECR_REPO_BACKEND}:eks-v1
 
